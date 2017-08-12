@@ -1,0 +1,26 @@
+{
+  "name": "@rh389/rn-xcode-git-version",
+  "version": "0.0.1",
+  "description": "Sets version in Info.plist based on git tag",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rh389/rn-xcode-git-version.git"
+  },
+  "keywords": [
+    "xcode",
+    "react-native",
+    "git",
+    "tag",
+    "version"
+  ],
+  "author": "Rob Hogan <roberthogan@blueyonder.co.uk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rh389/rn-xcode-git-version/issues"
+  },
+  "homepage": "https://github.com/rh389/rn-xcode-git-version#readme"
+}
