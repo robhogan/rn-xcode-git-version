@@ -15,6 +15,8 @@ else
 GIT_RELEASE_VERSION=$(git describe --tags --always --dirty)
 fi
 
+GIT_RELEASE_VERSION="${GIT_RELEASE_VERSION//-rc.[0-9]*}"
+
 #Update plist of build (not of project)
 defaults write "${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}" "CFBundleShortVersionString" "${GIT_RELEASE_VERSION#*v}"
 defaults write "${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}" "CFBundleVersion" "${BUILD_NUMBER}"
