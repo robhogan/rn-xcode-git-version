@@ -15,7 +15,10 @@ else
 GIT_RELEASE_VERSION=$(git describe --tags --always --dirty)
 fi
 
-GIT_RELEASE_VERSION="${GIT_RELEASE_VERSION//-rc.[0-9]*}"
+# Allow an rc suffix eg 1.0.0-rc.10 
+GIT_RELEASE_VERSION="${GIT_RELEASE_VERSION/%-rc.[0-9]*}"
+# Allow a prefix eg appname-1.2.0
+GIT_RELEASE_VERSION="${GIT_RELEASE_VERSION/#[a-z]*-}"
 
 #Update plist of build (not of project)
 defaults write "${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}" "CFBundleShortVersionString" "${GIT_RELEASE_VERSION#*v}"
