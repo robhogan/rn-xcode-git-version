@@ -1,7 +1,29 @@
+# A POSIX variable
+OPTIND=1         # Reset in case getopts has been used previously in the shell.
+
+# Initialize our own variables:
+
+# Add some constant number to the git commit count to make the build number
+# Useful for continuing the same project in a new repository
+BUILD_OFFSET=0
+
+while getopts "b:" opt; do
+    case "$opt" in
+    b)  BUILD_OFFSET=$OPTARG
+        ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+[ "${1:-}" = "--" ] && shift
+
 # From http://gabrielrinaldi.me/ios-app-versioning-with-git-tag/
 
 # Update build version with number of commits
 BUILD_NUMBER=$(git rev-list HEAD | wc -l | tr -d ' ')
+
+BUILD_NUMBER=$((BUILD_NUMBER+BUILD_OFFSET))
 
 # Set git SHA for this build
 GIT_SHA=$(git rev-parse --short HEAD)
