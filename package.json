@@ -1,6 +1,6 @@
 {
   "name": "@rh389/rn-xcode-git-version",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Sets version in Info.plist based on git tag",
   "main": "index.js",
   "scripts": {
